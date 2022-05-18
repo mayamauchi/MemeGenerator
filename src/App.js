@@ -1,20 +1,38 @@
-import React from "react"
+/*import React from "react"
 import Header from "./components/Header"
 import Meme from "./components/Meme"
 import "./style.css"
 
-/**
- * Challenge: 
- * - Create a Meme component.
- * - Inside the Meme component, render a styled form
- *   with our 2 inputs and the button.
- * - Don't worry about adding any functionality yet
- */
 export default function App() {
     return (
         <div>
             <Header />
             <Meme />
+        </div>
+    )
+}*/
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+export default function App() {
+    let thingsArray = ["Thing 1", "Thing 2"]
+    
+     const thingsElements = thingsArray.map(thing => <p key={thing}>{thing}</p>)
+/*     const thingsElements = thingsArray.map(x => {
+        return (
+            <p>{x}</p>
+        )
+    })*/
+    function clickHandler() {
+        thingsArray.push("Thing " + (thingsArray.length + 1))
+        console.log(thingsArray)
+    }
+
+    return (
+        <div>
+            <button onClick={clickHandler}>Add Item</button>
+            {thingsElements}
         </div>
     )
 }
