@@ -24,8 +24,13 @@ export default function App() {
             <p>{x}</p>
         )
     })*/
-    function clickHandler() {
+/*    function clickHandler() {
         thingsArray.push("Thing " + (thingsArray.length + 1))
+        console.log(thingsArray)
+    }*/
+    function clickHandler() {
+        const newThingText = `Thing ${thingsArray.length + 1}`
+        thingsArray.push(newThingText)
         console.log(thingsArray)
     }
 
