@@ -14,7 +14,8 @@ export default function App() {
 
 import React, {useState} from 'react';
 //import Greeting from "./Practices/Practices"
-import State from "./Practices/State"
+//import State from "./Practices/State"
+import Counter from "./Practices/Counter"
 import "./style.css"
 
 export default function App() {
@@ -40,7 +41,7 @@ export default function App() {
         <div>
             <button onClick={clickHandler}>Add Item</button>
             {thingsElements}
-            <State />
+            <Counter />
 
         </div>
     )
