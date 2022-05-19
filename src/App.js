@@ -12,12 +12,14 @@ export default function App() {
     )
 }*/
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, {useState} from 'react';
+//import Greeting from "./Practices/Practices"
+import State from "./Practices/State"
+import "./style.css"
 
 export default function App() {
     let thingsArray = ["Thing 1", "Thing 2"]
-    
+//    Greeting(" Esa")
      const thingsElements = thingsArray.map(thing => <p key={thing}>{thing}</p>)
 /*     const thingsElements = thingsArray.map(x => {
         return (
@@ -38,6 +40,8 @@ export default function App() {
         <div>
             <button onClick={clickHandler}>Add Item</button>
             {thingsElements}
+            <State />
+
         </div>
     )
 }
