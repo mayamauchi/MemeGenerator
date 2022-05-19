@@ -1,6 +1,7 @@
 import React from "react"
 import Header from "./components/Header"
 import Meme from "./components/Meme"
+import Practices from "./Practices/Practices"
 import "./style.css"
 
 /**
@@ -12,10 +13,16 @@ import "./style.css"
  */
 export default function App() {
     /*Move practices to Practices.js*/
+
     return (
+        <div>
+            <Practices />
+        </div>
+    )
+/*    return (
         <div>
             <Header />
             <Meme />
         </div>
-    )
+    )*/
 }
