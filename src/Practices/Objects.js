@@ -25,7 +25,21 @@ export default function Objects() {
     
     function toggleFavorite() {
         console.log("Toggle Favorite")
+        setContact(prevContact => {
+            return {
+                ...prevContact,
+                isFavorite: !prevContact.isFavorite
+            }
+       })
     }
+    function toggleFavoriteV2() {
+        //return object:
+        setContact(prevContact => ({
+            ...prevContact,
+            isFavorite: !prevContact.isFavorite
+        }))
+    }
+
 //    src={`../images/${starIcon}`} 
     
     return (
