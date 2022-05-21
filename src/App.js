@@ -1,8 +1,8 @@
 import React from "react"
 import Header from "./components/Header"
 import Meme from "./components/Meme"
-import Practices from "./Practices/Practices"
-//import "./style.css"
+//import Practices from "./Practices/Practices"
+import "./style.css"
 
 /**
  * Challenge: 
@@ -13,16 +13,16 @@ import Practices from "./Practices/Practices"
  */
 export default function App() {
     /*Move practices to Practices.js*/
-
+/*
     return (
         <div>
             <Practices />
         </div>
-    )
-/*    return (
+    )*/
+    return (
         <div>
             <Header />
             <Meme />
         </div>
-    )*/
+    )
 }
