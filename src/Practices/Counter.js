@@ -1,33 +1,34 @@
 import React from 'react';
 import "./counter.css"
+import Count from './Components/Count';
 
 export default function Counter(name) {
     const [count, setCount] = React.useState(0)
-    /**
-     * Note: if you ever need the old value of state
-     * to help you determine the new value of state,
-     * you should pass a callback function to your
-     * state setter function instead of using
-     * state directly. This callback function will
-     * receive the old value of state as its parameter,
-     * which you can then use to determine your new
-     * value of state.
-     */
-     function add() {
+    
+    function add() {
         setCount(prevCount => prevCount + 1)
     }
-    // Challenge: update `substract` to use a callback function
     
     function subtract() {
         setCount(prevCount => prevCount - 1)
     }
-
-     return (
+    
+    /**
+     * Challenge:
+     * - Create a new component named Count
+     *    - It should receive a prop called `number`, whose value
+     *      is the current value of our count
+     *    - Have the component render the whole div.counter--count
+     *      and display the incoming prop `number`
+     * - Replace the div.counter--count below with an instance of
+     *   the new Count component
+     */
+    return (
         <div className="counter">
             <button className="counter--minus" onClick={subtract}>–</button>
-            <div className="counter--count">
-                <h1>{count}</h1>
-            </div>
+            <Count
+                number={count}
+            />
             <button className="counter--plus" onClick={add}>+</button>
         </div>
     )
