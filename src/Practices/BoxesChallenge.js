@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import boxes from "./Components/Boxes"
 import "./boxeschallenge.css"
 
-export default function BoxesChallenge() {
+export default function BoxesChallenge(props) {
     const [squares, setSquares] = React.useState(boxes)
     
+    // Challenge: use a ternary to determine the backgroundColor.
+    // If darkMode is true, set it to "#222222"
+    // If darkMode is false, set it to "#cccccc"
+    
+    const styles = {
+        backgroundColor: props.darkMode ? "#222222" : "#cccccc"
+    }
+    
     const squareElements = squares.map(square => (
-        <div className="box"></div>
+        <div style={styles} className="box" key={square.id}></div>
     ))
-    /**
-     * Challenge part 1:
-     * 1. Initialize state with the default value of the
-     *    array pulled in from boxes.js
-     * 2. Map over that state array and display each one
-     *    as an empty square (black border, transparent bg color)
-     *    (Don't worry about using the "on" property yet)
-     */
     return (
         <main>
             {squareElements}

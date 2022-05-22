@@ -9,7 +9,7 @@ import BoxesChallenge from "./BoxesChallenge"
 export default function Practices() {
     return (
         <>
-            <BoxesChallenge />
+            <BoxesChallenge darkMode={false}/>
         </>
     )
 }
