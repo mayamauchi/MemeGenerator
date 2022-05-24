@@ -16,42 +16,22 @@ export default function BoxesChallenge(props) {
          * Hint: look back at the lesson on updating arrays
          * in state if you need a reminder on how to do this
          */
-         setSquares(prevSquares => {
-            const newSquares = []
-            for(let i = 0; i < prevSquares.length; i++) {
-                const currentSquare = prevSquares[i]
-                if(currentSquare.id === id) {
-                    const updatedSquare = {
-                        ...currentSquare,
-                        on: !currentSquare.on
-                    }
-                    newSquares.push(updatedSquare)
-                } else {
-                    newSquares.push(currentSquare)
-                }
+        setSquares(prevSquares => {
+            return prevSquares.map(square => {
+                return square.id == id ? {...square, on: !square.on } : square
             }
-            return newSquares
-        })
-
+        )})
+/*
+        setSquares(prevSquares => {
+            return prevSquares.map(square => {return 1}
+        )})
+        */
 /*        let index = id -1
         let s = squares.slice(0,index)
         let i = squares.slice(index,index+1)
         let e = squares.slice(index+1,squares.length) 
-
-        console.log([s, i, e])
-//        console.log
-        setSquares(oldSquares => {
-            console.log(oldSquares)
-            return [
-                ...oldSquares,
-                oldSquares[id].on = !oldSquares[id].on
-            ]
-        })*/
-//        setThingsArray(thing => [...thingsArray, newThing])
-        console.log("---------------")
-//        console.log(squares)
-}
-    
+*/
+    }
     const squareElements = squares.map(square => (
         <Box 
             key={square.id} 
@@ -66,4 +46,4 @@ export default function BoxesChallenge(props) {
             {squareElements}
         </main>
     )
- }
+}
