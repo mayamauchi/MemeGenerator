@@ -3,15 +3,19 @@ import "./Components/form.css"
 
 export default function Form() {
     const [firstName, setFirstName] = React.useState("")
+    const [lastName, setLastName] = React.useState("")
+    /**
+     * Challenge: Track the applicant's last name as well
+     */
+        console.log(firstName)
+        console.log(lastName)
     
-    console.log(firstName)
-    
-    function handleChange(event) {
-        console.log(event.target.value)
-        /**
-         * Challenge: update the firstName state on every keystroke
-         */
+    function handleFirstNameChange(event) {
         setFirstName(event.target.value)
+    }
+    
+    function handleLastNameChange(event) {
+        setLastName(event.target.value)
     }
     
     return (
@@ -19,7 +23,12 @@ export default function Form() {
             <input
                 type="text"
                 placeholder="First Name"
-                onChange={handleChange}
+                onChange={handleFirstNameChange}
+            />
+            <input
+                type="text"
+                placeholder="Last Name"
+                onChange={handleLastNameChange}
             />
         </form>
     )
