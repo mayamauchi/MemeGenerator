@@ -2,20 +2,23 @@ import React from "react"
 import "./Components/form.css"
 
 export default function Form() {
-    const [firstName, setFirstName] = React.useState("")
-    const [lastName, setLastName] = React.useState("")
+    const [formData, setFormData] = React.useState(
+        {firstName: "", lastName: "", email: ""}
+    )
+    
     /**
-     * Challenge: Track the applicant's last name as well
+     * Challenge: add an email field/state to the form
      */
-        console.log(firstName)
-        console.log(lastName)
     
-    function handleFirstNameChange(event) {
-        setFirstName(event.target.value)
-    }
+    console.log(formData)
     
-    function handleLastNameChange(event) {
-        setLastName(event.target.value)
+    function handleChange(event) {
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [event.target.name]: event.target.value
+            }
+        })
     }
     
     return (
@@ -23,12 +26,20 @@ export default function Form() {
             <input
                 type="text"
                 placeholder="First Name"
-                onChange={handleFirstNameChange}
+                onChange={handleChange}
+                name="firstName"
             />
             <input
                 type="text"
                 placeholder="Last Name"
-                onChange={handleLastNameChange}
+                onChange={handleChange}
+                name="lastName"
+            />
+            <input
+                type="email"
+                placeholder="E-mail"
+                onChange={handleChange}
+                name="email"
             />
         </form>
     )
