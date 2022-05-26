@@ -3,23 +3,26 @@ import "./Components/form.css"
 
 export default function Form() {
     const [formData, setFormData] = React.useState(
-        {firstName: "", lastName: "", email: "", comments: ""}
+        {
+            firstName: "", 
+            lastName: "", 
+            email: "", 
+            comments: "", 
+            isFriendly: true
+        }
     )
-    console.log(formData)
     
     function handleChange(event) {
+        const {name, value, type, checked} = event.target
+        console.log('handleChange')
+        console.log(name + ' ' + value + ' ' + type + ' ' + checked)
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
-                [event.target.name]: event.target.value
+                [name]: type === "checkbox" ? checked : value
             }
         })
     }
-    
-    /**
-     * Challenge: Add a textarea for "comments" to the form
-     * Make sure to update state when it changes.
-     */
     
     return (
         <form>
@@ -44,12 +47,21 @@ export default function Form() {
                 name="email"
                 value={formData.email}
             />
-            <textarea
-                placeholder="Comments?"
+            <textarea 
+                value={formData.comments}
+                placeholder="Comments"
                 onChange={handleChange}
                 name="comments"
-                value={formData.comments}
             />
+            <input 
+                type="checkbox" 
+                id="isFriendly" 
+                checked={formData.isFriendly}
+                onChange={handleChange}
+                name="isFriendly"
+            />
+            <label htmlFor="isFriendly">Are you friendly?</label>
+            <br />
         </form>
     )
 }
