@@ -44,27 +44,13 @@ export default function App() {
     
     function handleChange(event) {
         const {type, name, value, checked} = event.target
-/*        console.log(event.target)
-        console.log(type, name, value, checked)*/
-        if (type==="email" || type==="password") setFormData(prevData => {
+
+        setFormData(prevData => {
             return {
                 ...prevData,
-                [name]: value
+                [name]: type==="checkbox" ? checked : value
             }
         })
-/*        else if (type==="password") setFormData(prevData => {
-            return {
-                ...prevData,
-                [name]: value
-            }
-        })*/
-        else if (type==="checkbox") setFormData(prevData => {
-            return {
-                ...prevData,
-                [name]: checked
-            }
-        })
-        
     }
 
     return (
