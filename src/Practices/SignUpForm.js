@@ -46,18 +46,18 @@ export default function App() {
         const {type, name, value, checked} = event.target
 /*        console.log(event.target)
         console.log(type, name, value, checked)*/
-        if (type==="email") setFormData(prevData => {
-            return {
-                ...prevData,
-                email: value
-            }
-        })
-        else if (type==="password") setFormData(prevData => {
+        if (type==="email" || type==="password") setFormData(prevData => {
             return {
                 ...prevData,
                 [name]: value
             }
         })
+/*        else if (type==="password") setFormData(prevData => {
+            return {
+                ...prevData,
+                [name]: value
+            }
+        })*/
         else if (type==="checkbox") setFormData(prevData => {
             return {
                 ...prevData,
