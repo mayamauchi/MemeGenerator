@@ -29,6 +29,17 @@ export default function App() {
     console.log(formData.email, formData.pswd, formData.pswdConf, formData.join)
     function handleSubmit(event) {
         event.preventDefault()
+        console.log("handleSubmit")
+
+        if (formData.pswd === formData.pswdConf) {
+            console.log("Successfully signed up")
+            if (formData.join) 
+                console.log("Thanks for signing up for our newsletter!")
+        }
+        else
+            console.log("Passwords do not match")
+
+    
     }
     
     function handleChange(event) {
@@ -96,6 +107,7 @@ export default function App() {
                 </div>
                 <button 
                     className="form--submit"
+                    onClick={handleSubmit}
                 >
                     Sign up
                 </button>
