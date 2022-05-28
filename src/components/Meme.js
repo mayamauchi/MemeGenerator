@@ -1,42 +1,63 @@
-import React from "react"
-import memesData from "../memesData.js"
+import React, {useEffect} from "react"
 import "./meme.css"
 
 export default function Meme() {
     /**
      * Challenge: 
-     * 1. Set up the text inputs to save to
-     *    the `topText` and `bottomText` state variables.
-     * 2. Replace the hard-coded text on the image with
-     *    the text being saved to state.
+     * As soon as the Meme component loads the first time,
+     * make an API call to "https://api.imgflip.com/get_memes".
+     * 
+     * When the data comes in, save just the memes array part
+     * of that data to the `allMemes` state
+     * 
+     * Think about if there are any dependencies that, if they
+     * changed, you'd want to cause to re-run this function.
+     * 
+     * Hint: for now, don't try to use an async/await function.
+     * Instead, use `.then()` blocks to resolve the promises
+     * from using `fetch`. We'll learn why after this challenge.
      */
     
-    const [meme, setMeme] = React.useState({
+     const [meme, setMeme] = React.useState({
         topText: "",
         bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg" 
     })
-    const [allMemeImages, setAllMemeImages] = React.useState(memesData)
-    
+    const [allMemes, setAllMemes] = React.useState([])
+
+    console.log("MEMES")
+    console.log(allMemes)
+
+    useEffect(() => {
+        console.log("useEffect")
+        fetch("https://api.imgflip.com/get_memes")
+            .then(res => {
+//                console.log(res)
+                return res.json()
+            })
+            .then(dataGot => setAllMemes(dataGot.data.memes))
+//            .then(dataGot => console.log(dataGot.data.memes))
+    }, [])
+
     function getMemeImage() {
-        const memesArray = allMemeImages.data.memes
+        const memesArray = allMemes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
         const url = memesArray[randomNumber].url
         setMeme(prevMeme => ({
             ...prevMeme,
             randomImage: url
         }))
+        
     }
-
-    function handleInput(e) {
-        const {type, name, value} = e.target
-        console.log(e.target)
+    
+    function handleChange(event) {
+        const {name, value} = event.target
         setMeme(prevMeme => ({
             ...prevMeme,
             [name]: value
         }))
     }
-
+    
     return (
         <main>
             <div className="form">
@@ -44,17 +65,17 @@ export default function Meme() {
                     type="text"
                     placeholder="Top text"
                     className="form--input"
-                    onChange={handleInput}
                     name="topText"
                     value={meme.topText}
+                    onChange={handleChange}
                 />
                 <input 
                     type="text"
                     placeholder="Bottom text"
                     className="form--input"
-                    onChange={handleInput}
                     name="bottomText"
                     value={meme.bottomText}
+                    onChange={handleChange}
                 />
                 <button 
                     className="form--button"
@@ -64,7 +85,7 @@ export default function Meme() {
                 </button>
             </div>
             <div className="meme">
-                <img src={meme.randomImage} className="meme--image" />
+                <img src={meme.randomImage} className="meme--image" alt="Meme"/>
                 <h2 className="meme--text top">{meme.topText}</h2>
                 <h2 className="meme--text bottom">{meme.bottomText}</h2>
             </div>
