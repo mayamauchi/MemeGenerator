@@ -4,18 +4,23 @@ export default function UseEffect() {
     const [starWarsData, setStarWarsData] = React.useState({})
     const [count, setCount] = React.useState(0)
     
-    console.log("Component rendered")
-    
     /**
-     * Challenge: re-write the useEffect
-     * It should run any time `count` changes
-     * For now, just console.log("Effect function ran")
+     * Quiz:
+     * 1. What will happen if I put back our Star Wars API call
+     *    into the effect function?
      */
-    
-    useEffect(() => {
-        console.log(`Effect function ran ${count} times`)
-    }, [count])
+    React.useEffect(function() {
+        fetch("https://swapi.dev/api/people/1")
+            .then(res => {
+                console.log("RES===")
+                console.log(res)
+                return res.json()
+                console.log("JSON===")
 
+            })
+            .then(data => console.log(data))
+    }, [starWarsData, count])
+    
     return (
         <div>
             <pre>{JSON.stringify(starWarsData, null, 2)}</pre>
