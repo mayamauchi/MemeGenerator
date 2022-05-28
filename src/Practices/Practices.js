@@ -7,13 +7,14 @@ import PassData from "./PassData"
 import BoxesChallenge from "./BoxesChallenge"
 import JokeApp from "./JokeApp
 import Messages from "./JokeApp""
-import Form from "./Form"*/
-import SignUpForm from "./SignUpForm"
+import Form from "./Form"
+import SignUpForm from "./SignUpForm"*/
+import UseEffect from "./UseEffect"
 
 export default function Practices() {
     return (
         <>
-            <SignUpForm />
+            <UseEffect />
         </>
     )
 }
