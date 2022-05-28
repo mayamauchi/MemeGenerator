@@ -8,13 +8,14 @@ import BoxesChallenge from "./BoxesChallenge"
 import JokeApp from "./JokeApp
 import Messages from "./JokeApp""
 import Form from "./Form"
-import SignUpForm from "./SignUpForm"*/
-import UseEffect from "./UseEffect"
+import SignUpForm from "./SignUpForm"
+import UseEffect from "./UseEffect"*/
+import StateAndEffect from "./StateAndEffect"
 
 export default function Practices() {
     return (
         <>
-            <UseEffect />
+            <StateAndEffect />
         </>
     )
 }
