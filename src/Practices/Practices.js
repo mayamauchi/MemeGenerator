@@ -9,13 +9,14 @@ import JokeApp from "./JokeApp
 import Messages from "./JokeApp""
 import Form from "./Form"
 import SignUpForm from "./SignUpForm"
-import UseEffect from "./UseEffect"*/
-import StateAndEffect from "./StateAndEffect"
+import UseEffect from "./UseEffect"
+import StateAndEffect from "./StateAndEffect"*/
+import Reactfacts from "./Reactfacts/Reactfacts"
 
 export default function Practices() {
     return (
         <>
-            <StateAndEffect />
+            <Reactfacts />
         </>
     )
 }
