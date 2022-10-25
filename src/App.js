@@ -1,20 +1,12 @@
 import React from "react"
-//import Header from "./components/Header"
-//import Meme from "./components/Meme"
-import Practices from "./Practices/Practices"
-import "./style.css"
-
+import Header from "./components/Header"
+/**
+ * Challenge: Build the Header component
+ */
 export default function App() {
-
     return (
         <div>
-            <Practices />
+            <Header />
         </div>
     )
-/*    return (
-        <div>
-            <Header />
-            <Meme />
-        </div>
-    )*/
 }
